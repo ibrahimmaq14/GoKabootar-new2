@@ -1,16 +1,17 @@
 {
   "name": "psitransfer",
   "version": "0.0.0",
-  "description": "Simple open source self-hosted file sharing solution",
+  "description": "Simple open source self-hosted file sharing solution (GoKabootar edition)",
   "keywords": [
     "share",
     "upload",
     "transfer",
     "files",
-    "wetransfer"
+    "wetransfer",
+    "gokabootar"
   ],
-  "repository": "psi-4ward/psitransfer",
-  "bugs": "https://github.com/psi-4ward/psitransfer/issues",
+  "repository": "https://github.com/ibrahimmaq14/GoKabootar-new2",
+  "bugs": "https://github.com/ibrahimmaq14/GoKabootar-new2/issues",
   "main": "app.js",
   "dependencies": {
     "archiver": "^5.3.1",
@@ -28,7 +29,9 @@
     "pug": "^3.0.2",
     "tar-stream": "^2.2.0",
     "to-object-reducer": "^1.0.1",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   },
   "bin": {
     "psitransfer": "cli.js"
@@ -36,13 +39,17 @@
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "dev": "NODE_ENV=dev DEBUG=psitransfer:* nodemon -i app -i dist -i data app.js",
-    "debug": "node --inspect app.js"
+    "debug": "node --inspect app.js",
+    "build": "npm run dist",
+    "dist": "webpack --config webpack.config.js"
   },
   "engines": {
-    "node": ">= 10",
-    "npm": ">= 3"
+    "node": ">= 18",
+    "npm": ">= 8"
   },
   "author": "Christoph Wiechert <wio@psitrax.de>",
-  "contributors": [],
+  "contributors": [
+    "Ibrahim Maqsood <github.com/ibrahimmaq14>"
+  ],
   "license": "BSD-2-Clause"
 }
