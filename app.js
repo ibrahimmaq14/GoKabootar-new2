@@ -11,50 +11,54 @@ const eventBus = require('./lib/eventBus');
  * fid: {sid}++{key}
  */
 
+// Render assigns its own PORT, so use that if available
+const PORT = process.env.PORT || config.port || 3000;
+const IFACE = config.iface || '0.0.0.0';
+
 let server;
-if(config.port) {
+if (PORT) {
   // HTTP Server
-  server = app.listen(config.port, config.iface, () => {
-    console.log(`PsiTransfer listening on http://${config.iface}:${config.port}`);
+  server = app.listen(PORT, IFACE, () => {
+    console.log(`GoKabootar listening on http://${IFACE}:${PORT}`);
     eventBus.emit('listen', server);
   });
 }
 
 let httpsServer;
-if(config.sslPort && config.sslKeyFile && config.sslCertFile) {
-  // HTTPS Server
+if (config.sslPort && config.sslKeyFile && config.sslCertFile) {
+  // HTTPS Server (optional if SSL certs are provided)
   const sslOpts = {
     key: fs.readFileSync(config.sslKeyFile),
     cert: fs.readFileSync(config.sslCertFile)
   };
   httpsServer = https.createServer(sslOpts, app)
-    .listen(config.sslPort, config.iface, () => {
-      console.log(`PsiTransfer listening on https://${config.iface}:${config.sslPort}`);
+    .listen(config.sslPort, IFACE, () => {
+      console.log(`GoKabootar listening on https://${IFACE}:${config.sslPort}`);
       eventBus.emit('listen', httpsServer);
     });
 }
 
-
 // graceful shutdown
 function shutdown() {
-  console.log('PsiTransfer shutting down...');
+  console.log('GoKabootar shutting down...');
   eventBus.emit('shutdown', server || httpsServer);
-  if(server) {
+  if (server) {
     server.close(() => {
       server = false;
-      if(!server && !httpsServer) process.exit(0);
+      if (!server && !httpsServer) process.exit(0);
     });
   }
-  if(httpsServer) {
+  if (httpsServer) {
     httpsServer.close(() => {
       httpsServer = false;
-      if(!server && !httpsServer) process.exit(0);
+      if (!server && !httpsServer) process.exit(0);
     });
   }
-  setTimeout(function() {
+  setTimeout(() => {
     console.log('Could not close connections in time, forcefully shutting down');
     process.exit(1);
   }, 15 * 1000);
 }
+
 process.on('SIGTERM', shutdown);
 process.on('SIGINT', shutdown);
