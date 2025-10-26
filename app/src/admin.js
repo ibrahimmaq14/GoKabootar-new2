@@ -35,4 +35,4 @@ new Vue({
   render: h => h(Admin)
 });
 
-window.PSITRANSFER_VERSION = PSITRANSFER_VERSION;
+window.GoKabootar_VERSION = GoKabootar_VERSION;

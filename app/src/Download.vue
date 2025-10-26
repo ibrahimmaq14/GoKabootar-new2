@@ -79,7 +79,7 @@
 
   import FileIcon from './common/FileIcon.vue';
   import Clipboard from './common/Clipboard.vue';
-  import PreviewModal from './Download/PreviewModal.vue';
+  import PreviewModal from './Upload/Download/PreviewModal.vue';
 
   import 'vue-awesome/icons/cloud-upload-alt';
   import 'vue-awesome/icons/exclamation-triangle';

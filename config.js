@@ -4,10 +4,10 @@ const fsp = require('fs-promise');
 
 // Default Config
 // Do not edit this, generate a config.<ENV>.js for your NODE_ENV
-// or use ENV-VARS like PSITRANSFER_PORT=8000
+// or use ENV-VARS like GoKabootar_PORT=8000
 const config = {
   "uploadDir": path.resolve(__dirname + '/data'),
-  // set to serve PsiTransfer from a sub-path
+  // set to serve GoKabootar from a sub-path
   "baseUrl": '/',
   // use to set custom upload url (subfolder to baseUrl)
   "uploadAppPath": '/',
@@ -78,7 +78,7 @@ if (process.env.NODE_ENV && fsp.existsSync(envConfFile)) {
 // Load config from ENV VARS
 let envName;
 for (let k in config) {
-  envName = 'PSITRANSFER_' + k.replace(/([A-Z])/g, $1 => "_" + $1).toUpperCase();
+  envName = 'GoKabootar_' + k.replace(/([A-Z])/g, $1 => "_" + $1).toUpperCase();
   if (process.env[envName]) {
     if (typeof config[k] === 'number') {
       config[k] = parseInt(process.env[envName], 10);

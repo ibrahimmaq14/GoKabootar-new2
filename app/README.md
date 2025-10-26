@@ -1,4 +1,4 @@
-# PsiTransfer Upload / Download App
+# GoKabootar Upload / Download App
 
 ## Build Setup
 

@@ -32,4 +32,4 @@ new Vue({
   render: h => h(Download)
 });
 
-window.PSITRANSFER_VERSION = PSITRANSFER_VERSION;
+window.GoKabootar_VERSION = GoKabootar_VERSION;

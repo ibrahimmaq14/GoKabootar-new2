@@ -1,6 +1,7 @@
 module.exports = {
   langCode: "ja",
-  oldBrowserError: "お使いの Web ブラウザが古すぎるため、この機能をサポートしていません。",
+  oldBrowserError:
+    "お使いの Web ブラウザが古すぎるため、この機能をサポートしていません。",
   dropFilesHere: "ここにファイルをドロップ",
   noPreviewAvailable: "プレビューを表示できません",
   preview: "プレビュー",
@@ -26,9 +27,12 @@ module.exports = {
   createNewUploadSession: "新たにアップロードしますか？",
   decrypt: "認証する",
   files: "ファイル",
-  zipDownload: "すべてのファイルを Zip ファイルとしてダウンロードする (中途からのダウンロード再開不可)",
-  tarGzDownload: "すべてのファイルを tar.gz ファイルとしてダウンロードする (中途からのダウンロード再開不可)",
-  oneTimeDownloadExpired: "１度だけのダウンロード: 該当ファイルは今後ダウンロードできなくなります",
+  zipDownload:
+    "すべてのファイルを Zip ファイルとしてダウンロードする (中途からのダウンロード再開不可)",
+  tarGzDownload:
+    "すべてのファイルを tar.gz ファイルとしてダウンロードする (中途からのダウンロード再開不可)",
+  oneTimeDownloadExpired:
+    "１度だけのダウンロード: 該当ファイルは今後ダウンロードできなくなります",
   fileSizeExceed: "ファイルサイズが %% あり、最大値の %% を超えています",
   bucketSizeExceed: "アップロードサイズが %% あり、最大値の %% を超えています",
   mailInvalid: "メールアドレスが無効です",
@@ -40,19 +44,19 @@ module.exports = {
   mailDownloadNotification: "先方がダウンロードしたら通知する",
   mailSendBtn: "メール送信",
   mailsSent: "メールを送信しました。",
-  mailSubjectUploader: "PsiTransfer ファイル送信",
-  mailSubjectDownloader: "PsiTransfer ファイル受信",
+  mailSubjectUploader: "GoKabootar ファイル送信",
+  mailSubjectDownloader: "GoKabootar ファイル受信",
   mailSubjectFileDownloaded: "ファイルがダウンロードされました",
   retentions: {
     "one-time": "一度だけ",
-    "3600": "1 時間",
-    "21600": "6 時間",
-    "86400": "1 日",
-    "259200": "3 日",
-    "604800": "1 週間",
-    "1209600": "2 週間",
-    "2419200": "4 週間",
-    "4838400": "8 週間"
+    3600: "1 時間",
+    21600: "6 時間",
+    86400: "1 日",
+    259200: "3 日",
+    604800: "1 週間",
+    1209600: "2 週間",
+    2419200: "4 週間",
+    4838400: "8 週間",
   },
   uploadPassword: "送信パスワード",
-}
+};

@@ -40,8 +40,8 @@ module.exports = {
   mailDownloadNotification: "Benachrichtige mich, wenn eine Datei heruntergeladen wurde.",
   mailSendBtn: "E-Mail verschicken",
   mailsSent: "Die E-Mails wurden verschickt.",
-  mailSubjectUploader: "PsiTransfer Datei-Upload",
-  mailSubjectDownloader: "PsiTransfer Datei-Download",
+  mailSubjectUploader: "GoKabootar Datei-Upload",
+  mailSubjectDownloader: "GoKabootar Datei-Download",
   mailSubjectFileDownloaded: "Datei wurde heruntergeladen",
   retentions: {
     "one-time": "Einmal-Download",

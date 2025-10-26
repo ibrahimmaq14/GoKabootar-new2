@@ -1,3 +1,4 @@
+// src/store/store.js
 'use strict';
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -5,11 +6,13 @@ Vue.use(Vuex);
 
 import config from './store/config.js';
 import upload from './store/upload.js';
+import rooms from './store/rooms.js';  // ADD THIS IMPORT
 
 export default new Vuex.Store({
   modules: {
     config,
-    upload
+    upload,
+    rooms  // ADD THIS MODULE
   },
 
   state: {

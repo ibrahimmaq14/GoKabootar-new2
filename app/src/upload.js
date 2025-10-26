@@ -1,41 +1,51 @@
-import "regenerator-runtime/runtime.js";
+import Vue from "vue";
+import Vuex from "vuex";
+import Upload from "./Upload.vue";
+import Icon from "vue-awesome/components/Icon";
+import store from "./Upload/store";
+import dragDrop from "drag-drop";
 
-import Vue from 'vue';
-import Upload from './Upload.vue';
-import store from './Upload/store.js';
-import Icon from 'vue-awesome/components/Icon'
-import {httpGet} from "./common/util";
+Vue.component("icon", Icon);
 
-Vue.component('icon', Icon);
-
-new Vue({
-  el: '#upload',
-  data: {
-    baseURI: document.head.getElementsByTagName('base')[0].href.replace(/\/$/),
-    configFetched: false,
-    lang: {},
-  },
+const app = new Vue({
+  el: "#upload",
   store,
+  data: {
+    baseURI: document.head.getElementsByTagName("base")[0].href,
+    lang: {},
+    configFetched: false
+  },
   render: h => h(Upload),
-  async beforeCreate() {
+  async mounted() {
     // Fetch translations
     try {
-      this.lang = await httpGet('lang.json');
-      this.$store.commit('LANG', this.lang);
+      const langRes = await fetch(this.baseURI + "lang.json");
+      this.lang = await langRes.json();
+      this.$store.commit("LANG", this.lang);
     } catch (e) {
-      alert(e);
+      console.error("Failed to load translations", e);
     }
 
     // Fetch config
     try {
-      await this.$store.dispatch('config/fetch');
-    } catch(e) {
-      if(e.code !== 'PWDREQ') {
+      await this.$store.dispatch("config/fetch");
+      this.configFetched = true;
+    } catch (e) {
+      if (e.code === "PWDREQ") {
+        this.$store.commit("config/UPLOAD_PASS_REQUIRED", true);
+        this.configFetched = true;
+      } else {
         console.error(e);
+        this.$store.commit("ERROR", e.message || e.toString());
       }
     }
-    this.configFetched = true;
+
+    // Setup drag & drop
+    dragDrop("body", files => {
+      if (this.$store.state.disabled) return;
+      this.$store.dispatch("upload/addFiles", files);
+    });
   }
 });
 
-window.PSITRANSFER_VERSION = PSITRANSFER_VERSION;
+window.GoKabootar_VERSION = GoKabootar_VERSION;

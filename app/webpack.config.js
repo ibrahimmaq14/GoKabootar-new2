@@ -94,7 +94,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(mode),
-      PSITRANSFER_VERSION: JSON.stringify(process.env.PSITRANSFER_VERSION || commitShaId || 'dev')
+      GoKabootar_VERSION: JSON.stringify(process.env.GoKabootar_VERSION || commitShaId || 'dev')
     }),
   ],
   devServer: {

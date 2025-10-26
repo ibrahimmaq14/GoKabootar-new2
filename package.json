@@ -1,7 +1,7 @@
 {
-  "name": "psitransfer",
+  "name": "gokabootar",
   "version": "0.0.0",
-  "description": "Simple open source self-hosted file sharing solution (GoKabootar edition)",
+  "description": "GoKabootar - Simple open source self-hosted file sharing solution with team rooms",
   "keywords": [
     "share",
     "upload",
@@ -34,11 +34,11 @@
     "webpack-cli": "^5.1.4"
   },
   "bin": {
-    "psitransfer": "cli.js"
+    "gokabootar": "cli.js"
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "dev": "NODE_ENV=dev DEBUG=psitransfer:* nodemon -i app -i dist -i data app.js",
+    "dev": "NODE_ENV=dev DEBUG=gokabootar:* nodemon -i app -i dist -i data app.js",
     "debug": "node --inspect app.js",
     "build": "npm run dist",
     "dist": "webpack --config webpack.config.js"

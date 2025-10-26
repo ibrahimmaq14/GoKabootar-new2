@@ -40,8 +40,8 @@ module.exports = {
   mailDownloadNotification: "Notifícame cuando se haya descargado un archivo.",
   mailSendBtn: "Enviar",
   mailsSent: "Los mensajes han sido enviados.",
-  mailSubjectUploader: "PsiTransfer - Subida de archivos",
-  mailSubjectDownloader: "PsiTransfer - Descarga de archivos",
+  mailSubjectUploader: "GoKabootar - Subida de archivos",
+  mailSubjectDownloader: "GoKabootar - Descarga de archivos",
   mailSubjectFileDownloaded: "El archivo ha sido descargado",
   retentions: {
     "one-time": "Descarga única",
